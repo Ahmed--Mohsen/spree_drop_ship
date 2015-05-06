@@ -3,8 +3,8 @@ Spree::Admin::StockItemsController.class_eval do
   before_filter :add_supplier_to_variant, only: :create
 
   def add_supplier_to_variant
-    variant = Variant.find(params[:variant_id])
-    stock_location = StockLocation.find(params[:stock_location_id])
+    variant = Spree::Variant.find(params[:variant_id])
+    stock_location = Spree::StockLocation.find(params[:stock_location_id])
     supplier = stock_location.supplier
 
     # Add stock_location's supplier to variant
