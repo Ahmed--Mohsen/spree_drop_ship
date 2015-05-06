@@ -1,6 +1,6 @@
 Spree::Admin::StockItemsController.class_eval do
 
-  create.before :add_supplier_to_variant
+  before_filter :add_supplier_to_variant, only: :create
 
   def add_supplier_to_variant
     variant = Variant.find(params[:variant_id])
